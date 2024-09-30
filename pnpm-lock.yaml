@@ -29,6 +29,9 @@ importers:
       mongoose:
         specifier: ^8.6.2
         version: 8.6.2
+      mongoose-aggregate-paginate-v2:
+        specifier: ^1.1.2
+        version: 1.1.2
       path:
         specifier: ^0.12.7
         version: 0.12.7
@@ -424,6 +427,10 @@ packages:
         optional: true
       socks:
         optional: true
+
+  mongoose-aggregate-paginate-v2@1.1.2:
+    resolution: {integrity: sha512-Ai478tHedZy3U2ITBEp2H4rQEviRan3TK4p/umlFqIzgPF1R0hNKvzzQGIb1l2h+Z32QLU3NqaoWKu4vOOUElQ==}
+    engines: {node: '>=4.0.0'}
 
   mongoose@8.6.2:
     resolution: {integrity: sha512-ErbDVvuUzUfyQpXvJ6sXznmZDICD8r6wIsa0VKjJtB6/LZncqwUn5Um040G1BaNo6L3Jz+xItLSwT0wZmSmUaQ==}
@@ -1057,6 +1064,8 @@ snapshots:
       '@mongodb-js/saslprep': 1.1.9
       bson: 6.8.0
       mongodb-connection-string-url: 3.0.1
+
+  mongoose-aggregate-paginate-v2@1.1.2: {}
 
   mongoose@8.6.2:
     dependencies:
