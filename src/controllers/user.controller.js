@@ -6,7 +6,6 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 const registerUser = asyncHandler(async (req, res) => {
   const { fullName, email, username, password } = req.body;
-  console.log("email: ", email);
 
   if (
     [fullName, email, username, password].some((field) => {
@@ -15,7 +14,7 @@ const registerUser = asyncHandler(async (req, res) => {
   ) {
     throw new ApiError(400, "Parameter cant be empty");
   }
-  const existedUser = User.findOne({
+  const existedUser = await User.findOne({
     $or: [{ username }, { email }],
   });
 
@@ -26,6 +25,9 @@ const registerUser = asyncHandler(async (req, res) => {
   const avatarlocalpath = req.files?.avatar[0]?.path;
   const coverImagelocalpath = req.files?.coverImage[0]?.path;
 
+  console.log(avatarlocalpath);
+  console.log(coverImagelocalpath);
+
   if (!avatarlocalpath) {
     throw new ApiError(400, "Avatar compulsory");
   }
@@ -34,7 +36,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const coverimage = await uploadoncloudinary(coverImagelocalpath);
 
   if (!avatar) {
-    throw new ApiError(400, "Avatar compulsory");
+    throw new ApiError(400, "Avatar cloud compulsory");
   }
 
   const user = await User.create({
