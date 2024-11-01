@@ -34,7 +34,6 @@ const app = express();
 dotenv.config({
   path: "../.env",
 });
-console.log(process.env);
 
 app.on("error", () => {
   console.log("ERROR: ", error);
